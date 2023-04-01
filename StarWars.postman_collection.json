@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "1f1221c9-2c65-4379-8cd9-0073068f18be",
+		"name": "StarWars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24969792"
+	},
+	"item": [
+		{
+			"name": "Персонаж",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Ожидаю статус ответа 200\", function() \r",
+							"{pm.response.to.have.status(200);})\r",
+							"\r",
+							"pm.test(\"Ответ менее чем за 250ms\", function () \r",
+							"{pm.expect(pm.response.responseTime).to.be.below(250);});\r",
+							"\r",
+							"pm.test(\"Status code name has string\", function () \r",
+							"{pm.response.to.have.status(\"OK\");});\r",
+							"\r",
+							"pm.test(\"Проверка даты рождения\", function () \r",
+							"{var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.birth_year).to.eql(\"57BBY\");});\r",
+							"\r",
+							"pm.test(\"Body ответа содержит строку рост\", function () \r",
+							"{pm.expect(pm.response.text()).to.include(\"height\");});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/people/10/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"people",
+						"10",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Планета",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Ожидаю статус ответа 200\", function() \r",
+							"{pm.response.to.have.status(200);})\r",
+							"\r",
+							"pm.test(\"Ответ менее чем за 250ms\", function () \r",
+							"{pm.expect(pm.response.responseTime).to.be.below(250);});\r",
+							"\r",
+							"pm.test(\"Status code name has string\", function () \r",
+							"{pm.response.to.have.status(\"OK\");});\r",
+							"\r",
+							"pm.test(\"Проверка диаметра\", function () \r",
+							"{var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.diameter).to.eql(\"4900\");});\r",
+							"\r",
+							"pm.test(\"Body ответа содержит строку климат\", function () \r",
+							"{pm.expect(pm.response.text()).to.include(\"climate\");});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/planets/7/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"planets",
+						"7",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Космический корабль",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Ожидаю статус ответа 200\", function() \r",
+							"{pm.response.to.have.status(200);})\r",
+							"\r",
+							"pm.test(\"Ответ менее чем за 250ms\", function () \r",
+							"{pm.expect(pm.response.responseTime).to.be.below(250);});\r",
+							"\r",
+							"pm.test(\"Status code name has string\", function () \r",
+							"{pm.response.to.have.status(\"OK\");});\r",
+							"\r",
+							"pm.test(\"Проверка стоимости\", function () \r",
+							"{var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.cost_in_credits).to.eql(\"240000\");});\r",
+							"\r",
+							"pm.test(\"Body ответа содержит строку пассажиры\", function () \r",
+							"{pm.expect(pm.response.text()).to.include(\"passengers\");});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/starships/5/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"starships",
+						"5",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://swapi.py4e.com",
+			"type": "string"
+		},
+		{
+			"value": "",
+			"disabled": true
+		}
+	]
+}
